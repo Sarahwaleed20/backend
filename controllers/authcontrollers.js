@@ -9,7 +9,7 @@ const signToken = (id, role) => {
     process.env.JWT_SECRET,
     { expiresIn: process.env.JWT_EXPIRES_IN }
   );
-};
+}; 
 
 const authLog = (event, email, req) => {
   const ip = req.ip;
