@@ -3,10 +3,10 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const expenseRouter = require('./routes/expenseRoutes');
-const authRouter = require('./routes/authRoutes');
-const userRouter = require('./routes/userRoutes');
+const authRouter = require('./routes/authroutes');
+const userRouter = require('./routes/userroutes');
 const categoryRouter = require('./routes/categoryRoutes');
-const budgetRouter = require('./routes/budgetRoutes');
+const budgetRouter = require('./routes/budgetroutes');
 const analyticsRouter = require('./routes/analyticsRoutes');
 dotenv.config();
 
