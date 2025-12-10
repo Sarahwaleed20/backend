@@ -19,6 +19,7 @@ app.use(cors({
   credentials: true,
 }));
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/expenses', expenseRouter);
 app.use('/api/v1/users', userRouter);
