@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Categories</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+  <h2>Categories</h2>
+
+  <form id="addCategoryForm">
+    <div class="input-group">
+      <label>Category Name</label>
+      <input type="text" id="categoryName" required />
+    </div>
+    <button type="submit">Add Category</button>
+  </form>
+
+  <h3>Current Categories</h3>
+  <ul id="categoryList"></ul>
+
+  <br>
+  <button onclick="window.location.href='dashboard.html'">Back</button>
+  <button id="logoutBtn">Logout</button>
+</div>
+
+<script src="categories.js"></script>
+</body>
+</html>

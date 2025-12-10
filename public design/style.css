@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, rgba(0, 132, 255, 0.501) , rgba(0, 123, 255, 0.984) );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 380px;
+}
+
+.form-card {
+  background: #d30ecd;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(151, 28, 208, 0.684);
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+  color: black;
+}
+
+.input-group {
+  margin: 12px 0;
+}
+
+label {
+  font-size: 14px;
+  color: blueviolet;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid burlywood;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #4475a0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #02315d;
+}
+
+.error {
+  font-size: 12px;
+  color: violet;
+}
+
+
+.switch {
+  margin-top: 12px;
+  text-align: center;
+}
+
+
+
+.dashboard-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dashboard-buttons button {
+  width: 100%;
+}
+
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background:whitesmoke;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+ul li button {
+  width: auto;
+  font-size: 14px;
+  padding: 6px 10px;
+  margin: 0;
+  background: rebeccapurple;
+  border-radius: 4px;
+}
+
+ul li button:hover {
+  background: black;
+}
+
+
+#budgetInfo {
+  background: whitesmoke;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 15px;
+}
+
+canvas {
+  background: whitesmoke;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

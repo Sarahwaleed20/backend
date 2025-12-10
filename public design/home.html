@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <h2 id="welcomeText">Loading...</h2>
+
+  <script>
+    async function loadUser() {
+      try {
+        const res = await fetch("http://localhost:4000/api/users/me", {
+          method: "GET",
+          credentials: "include" 
+        });
+
+        const data = await res.json();
+
+        if (data.data) {
+         
+          document.getElementById("welcomeText").textContent =
+            "Welcome " + data.data.email;
+        } else {
+          document.getElementById("welcomeText").textContent =
+            "Welcome";
+        }
+
+      } catch (err) {
+        document.getElementById("welcomeText").textContent =
+          "Cannot connect to server";
+      }
+    }
+
+    loadUser();
+  </script>
+
+</body>
+</html>
