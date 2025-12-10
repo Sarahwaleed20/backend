@@ -1,6 +1,6 @@
 async function loadUser() {
   try {
-    const res = await fetch("http://localhost:4000/api/users/me", {
+    const res = await fetch("http://localhost:3000/api/users/me", {
       method: "GET",
       credentials: "include"
     });
@@ -20,7 +20,7 @@ async function loadUser() {
 
 // load categories into select
 async function loadCategories() {
-  const res = await fetch("http://localhost:4000/api/categories", {
+  const res = await fetch("http://localhost:3000/api/categories", {
     method: "GET",
     credentials: "include"
   });
@@ -39,7 +39,7 @@ async function loadCategories() {
 
 // load expenses
 async function loadExpenses() {
-  const res = await fetch("http://localhost:4000/api/expenses", {
+  const res = await fetch("http://localhost:3000/api/expenses", {
     method: "GET",
     credentials: "include"
   });
@@ -55,7 +55,7 @@ async function loadExpenses() {
     const btn = document.createElement("button");
     btn.textContent = "Delete";
     btn.onclick = async () => {
-      await fetch("http://localhost:4000/api/expenses/" + exp.id, {
+      await fetch("http://localhost:3000/api/expenses/" + exp.id, {
         method: "DELETE",
         credentials: "include"
       });
@@ -77,7 +77,7 @@ document.getElementById("addExpenseForm").addEventListener("submit", async (e) =
 
   if (!title || !amount) return;
 
-  await fetch("http://localhost:4000/api/expenses", {
+  await fetch("http://localhost:3000/api/expenses", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -91,7 +91,7 @@ document.getElementById("addExpenseForm").addEventListener("submit", async (e) =
 
 // logout
 document.getElementById("logoutBtn").onclick = async function() {
-  await fetch("http://localhost:4000/api/auth/logout", {
+  await fetch("http://localhost:3000/api/auth/logout", {
     method: "POST",
     credentials: "include"
   });

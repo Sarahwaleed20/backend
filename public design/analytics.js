@@ -1,6 +1,6 @@
 async function loadUser() {
   try {
-    const res = await fetch("http://localhost:4000/api/users/me", {
+    const res = await fetch("http://localhost:3000/api/users/me", {
       method: "GET",
       credentials: "include"
     });
@@ -18,7 +18,7 @@ async function loadUser() {
 }
 
 async function loadAnalytics() {
-  const res = await fetch("http://localhost:4000/api/analytics/categories", {
+  const res = await fetch("http://localhost:3000/api/analytics/categories", {
     method: "GET",
     credentials: "include"
   });
@@ -41,7 +41,7 @@ async function loadAnalytics() {
 
 // logout
 document.getElementById("logoutBtn").onclick = async function() {
-  await fetch("http://localhost:4000/api/auth/logout", {
+  await fetch("http://localhost:3000/api/auth/logout", {
     method: "POST",
     credentials: "include"
   });

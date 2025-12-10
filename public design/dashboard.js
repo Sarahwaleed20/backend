@@ -1,6 +1,6 @@
 async function loadUser() {
   try {
-    const res = await fetch("http://localhost:4000/api/users/me", {
+    const res = await fetch("http://localhost:3000/api/users/me", {
       method: "GET",
       credentials: "include"
     });
@@ -36,7 +36,7 @@ document.getElementById("budgetBtn").onclick = function() {
 };
 
 document.getElementById("logoutBtn").onclick = async function() {
-  await fetch("http://localhost:4000/api/auth/logout", {
+  await fetch("http://localhost:3000/api/auth/logout", {
     method: "POST",
     credentials: "include"
   });

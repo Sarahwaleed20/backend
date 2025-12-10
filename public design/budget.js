@@ -1,6 +1,6 @@
 async function loadUser() {
   try {
-    const res = await fetch("http://localhost:4000/api/users/me", {
+    const res = await fetch("http://localhost:3000/api/users/me", {
       method: "GET",
       credentials: "include"
     });
@@ -19,7 +19,7 @@ async function loadUser() {
 
 // load budget
 async function loadBudget() {
-  const res = await fetch("http://localhost:4000/api/budget", {
+  const res = await fetch("http://localhost:3000/api/budget", {
     method: "GET",
     credentials: "include"
   });
@@ -40,7 +40,7 @@ document.getElementById("setBudgetForm").addEventListener("submit", async (e) =>
   const amount = parseFloat(document.getElementById("budgetAmount").value);
   if (!amount) return;
 
-  await fetch("http://localhost:4000/api/budget", {
+  await fetch("http://localhost:3000/api/budget", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -53,7 +53,7 @@ document.getElementById("setBudgetForm").addEventListener("submit", async (e) =>
 
 // logout
 document.getElementById("logoutBtn").onclick = async function() {
-  await fetch("http://localhost:4000/api/auth/logout", {
+  await fetch("http://localhost:3000/api/auth/logout", {
     method: "POST",
     credentials: "include"
   });
