@@ -16,3 +16,6 @@
 2025-12-12T18:28:33.983Z | SIGNUP FAILED - EMAIL EXISTS | sarah.waleed08@gmail.com | IP: ::1
 2025-12-12T18:28:42.324Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
 2025-12-12T19:45:11.483Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
+2025-12-12T20:11:46.870Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
+2025-12-12T21:46:43.280Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
+2025-12-12T21:46:54.109Z | SIGNUP FAILED - EMAIL EXISTS | demo@example.com | IP: ::1
