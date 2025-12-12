@@ -4,7 +4,7 @@ exports.addExpense = (req, res) => {
   const userId = req.user.id;
   const { category, amount, date, description } = req.body;
 
-  if (!category || !amount || !date) {
+  if (!categoryID && category || !amount || !date) {
     return res.status(400).json({
       status: 'fail',
       message: 'Category, amount, and date are required.',
@@ -19,7 +19,7 @@ exports.addExpense = (req, res) => {
   }
 
   const query = `
-    INSERT INTO EXPENSES (USER_ID, CATEGORY, AMOUNT, DATE, DESCRIPTION)
+    INSERT INTO EXPENSES (USER_ID, CATEGORY_ID, AMOUNT, DATE, DESCRIPTION)
     VALUES (?, ?, ?, ?, ?)
   `;
 

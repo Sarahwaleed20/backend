@@ -4,3 +4,8 @@
 2025-12-10T22:00:48.755Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
 2025-12-10T22:09:49.278Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
 2025-12-10T22:12:41.623Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
+2025-12-12T17:30:30.720Z | LOGIN SUCCESS | sarah.waleed08@gmail.com | IP: ::1
+2025-12-12T17:37:28.412Z | SIGNUP FAILED - EMAIL EXISTS | demo@example.com | IP: ::1
+2025-12-12T17:37:35.766Z | LOGIN SUCCESS | demo@example.com | IP: ::1
+2025-12-12T17:42:33.438Z | LOGIN SUCCESS | demo@example.com | IP: ::1
+2025-12-12T17:43:47.921Z | LOGIN SUCCESS | demo@example.com | IP: ::1
