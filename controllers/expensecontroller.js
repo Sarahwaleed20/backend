@@ -2,9 +2,9 @@ const { db } = require('../db');
 
 exports.addExpense = (req, res) => {
   const userId = req.user.id;
-  const { category, amount, date, description } = req.body;
+  const { categoryId, amount, date, description } = req.body;
 
-  if (!categoryID && category || !amount || !date) {
+  if (!categoryId || !amount || !date) {
     return res.status(400).json({
       status: 'fail',
       message: 'Category, amount, and date are required.',
@@ -23,7 +23,7 @@ exports.addExpense = (req, res) => {
     VALUES (?, ?, ?, ?, ?)
   `;
 
-  db.run(query, [userId, category, amount, date, description], function (err) {
+  db.run(query, [userId, categoryId, amount, date, description], function (err) {
     if (err) {
       console.error(err);
       return res.status(500).json({
