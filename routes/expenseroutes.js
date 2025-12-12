@@ -6,7 +6,5 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 router.post('/add', verifyToken, addExpense);
 router.get('/', verifyToken, getExpenses);
-router.post('/add', authMiddleware, addExpense);
-router.get('/', authMiddleware, getExpenses);
 
 module.exports = router;

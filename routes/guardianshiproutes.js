@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../middleware/authMiddleware');
+const { verifyToken } = require('../controllers/authcontroller');
 const { assignGuardian, getChildren } = require('../controllers/guardianshipcontroller');
 
-router.post('/', authMiddleware, assignGuardian);
-router.get('/', authMiddleware, getChildren);
-
+router.post('/', verifyToken, assignGuardian);
+router.get('/', verifyToken, getChildren);
 module.exports = router;
