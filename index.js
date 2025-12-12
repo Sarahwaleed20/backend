@@ -9,6 +9,7 @@ const userRouter = require('./routes/userroutes');
 const categoryRouter = require('./routes/categoryRoutes');
 const budgetRouter = require('./routes/budgetroutes');
 const analyticsRouter = require('./routes/analyticsRoutes');
+const guardianshipRouter = require('./routes/guardianshiproutes');
 dotenv.config();
 
 const app = express();
@@ -27,6 +28,7 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/categories', categoryRouter);
 app.use('/api/v1/budgets', budgetRouter);
 app.use('/api/v1/analytics', analyticsRouter);
+app.use('/api/v1/guardianship', guardianshipRouter);
 
 module.exports = {
   app,
