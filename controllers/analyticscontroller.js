@@ -1,4 +1,4 @@
-const { db } = require('../db');
+const { db } = Require('../db');
 
 const getSummary = (req, res) => {
   const userId = req.user.id;
@@ -53,4 +53,4 @@ const getTimeSeries = (req, res) => {
   });
 };
 
-module.exports = { getSummary, getTimeSeries };
+Module.exports = { getSummary, getTimeSeries };

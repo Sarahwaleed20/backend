@@ -1,6 +1,6 @@
-const { db } = require('../db');
+const { db } = Require('../db');
 
-exports.assignGuardian = (req, res) => {
+Exports.assignGuardian = (req, res) => {
   const parentId = req.user.id;
   const { childId } = req.body;
 
@@ -33,7 +33,7 @@ exports.assignGuardian = (req, res) => {
   });
 };
 
-exports.getChildren = (req, res) => {
+Exports.getChildren = (req, res) => {
   const parentId = req.user.id;
 
   const query = `

@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const fs = require('fs');
-const { db } = require('../db');
+const jwt = Require('jsonwebtoken');
+const bcrypt = Require('bcryptjs');
+const fs = Require('fs'); // to write logs in the auth logs file 
+const { db } = Require('../db');
 
 const signToken = (id, role) => {
   return jwt.sign(
@@ -10,11 +10,11 @@ const signToken = (id, role) => {
     { expiresIn: process.env.JWT_EXPIRES_IN }
   );
 };
-const authLog = (event, email, req) => {
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-  const line = `${new Date().toISOString()} | ${event} | ${email} | IP: ${ip}\n`;
+const authLog = (event, email, req) => {  //defines a func that takes 3 inputs login sign up... email and requestfor ip
+  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress; // tries to get availabe ip 
+  const line = `${new Date().toISOString()} | ${event} | ${email} | IP: ${ip}\n`; //Creates a log entry event, ip email, date
   
-  fs.appendFile('./logs/auth.log', line, (err) => {
+  fs.appendFile('./logs/auth.log', line, (err) => { // stores the entry event in logs 
     if (err) console.error('Logging error:', err.message);
   });
 };
@@ -22,15 +22,15 @@ const signUp = (req, res) => {
   const { email, password } = req.body;
   const role = 'user'; 
 
-  if (!email || !password) {
-    return res.status(400).json({ error: 'Please provide email and password.' });
+  if (!email || !password) { 
+    return res.status(400).json({ error: 'Please provide email and password.' }); 
   }
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
+  bcrypt.hash(password, 10, (err, hashedPassword) => { //hashes pass salt rounds 10 
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Error hashing password.' });
     }
-    const sql = `INSERT INTO USER (EMAIL, PASSWORD, ROLE) VALUES (?, ?, ?)`;
+    const sql = `INSERT INTO USER (EMAIL, PASSWORD, ROLE) VALUES (?, ?, ?)`; //insert new user to sql 
     db.run(sql, [email, hashedPassword, role], function (err) {
       if (err) {
         if (err.message.includes('UNIQUE')) {
@@ -44,11 +44,11 @@ const signUp = (req, res) => {
       const token = signToken(this.lastID, role);
       authLog('SIGNUP SUCCESS', email, req);
 
-      res.cookie('token', token, {
-        httpOnly: true,
-        sameSite: 'Strict',
-        secure: false,       
-        maxAge: 3600000
+      res.cookie('token', token, { //Sends JWT to browser as a cookie
+        httpOnly: true, //Cookie cannot be accessed by JavaScript
+        sameSite: 'Strict', 
+        secure: false, //not https       
+        maxAge: 3600000 //erpires in 1 hour 
       });
 
       return res.status(201).json({
@@ -67,7 +67,7 @@ const login = (req, res) => {
     return res.status(400).json({ error: 'Please provide email and password.' });
   }
 
-  const sql = `SELECT * FROM USER WHERE EMAIL = ?`;
+  const sql = `SELECT * FROM USER WHERE EMAIL = ?`; //SQL query to find user
 
   db.get(sql, [email], (err, row) => {
     if (err) {
@@ -91,7 +91,7 @@ const login = (req, res) => {
         return res.status(401).json({ error: 'Invalid credentials.' });
       }
 
-      const token = signToken(row.ID, row.ROLE);
+      const token = signToken(row.ID, row.ROLE); //creates jwt after successful login 
       authLog('LOGIN SUCCESS', email, req);
 
       res.cookie('token', token, {
@@ -116,32 +116,32 @@ const login = (req, res) => {
 
 const logout = (req, res) => {
   const email = req.user ? req.user.id : 'unknown';
-  authLog('LOGOUT', email, req);
+  authLog('LOGOUT', email, req); //req used to extract ip
 
-  res.clearCookie('token');
+  res.clearCookie('token'); //deletes cookie 
   return res.status(200).json({ message: 'Logged out successfully' });
 };
 
 const refresh = (req, res) => {
-  const token = req.cookies.token;
+  const token = req.cookies.token; //Reads the cookie named token from the browser This cookie was created earlier by login or signup If the user is logged in → this exists
   
-  if (!token) {
-    return res.status(401).json({ error: 'No token provided.' });
+  if (!token) { //  token does not exists 
+    return res.status(401).json({ error: 'No token provided.' }); //gets logged out 
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => { // decoded el howa content of token id and role 
     if (err) {
       return res.status(403).json({ error: 'Invalid or expired token.' });
-    }
+    } 
 
-    const newToken = signToken(decoded.id, decoded.role);
+    const newToken = signToken(decoded.id, decoded.role); //Creates fresh token
 
     res.cookie('token', newToken, {
       httpOnly: true,
       sameSite: 'Strict',
       secure: false,
       maxAge: 3600000
-    });
+    }); 
 
     return res.status(200).json({ message: 'Token refreshed' });
   });
@@ -173,7 +173,7 @@ const verifyAdmin = (req, res, next) => {
   });
 };
 
-module.exports = {
+Module.exports = {
   signUp,
   login,
   logout,

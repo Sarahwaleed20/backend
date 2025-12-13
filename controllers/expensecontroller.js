@@ -1,8 +1,8 @@
-const { db } = require('../db');
+const { db } = Require('../db');
 
-exports.addExpense = (req, res) => {
-  const userId = req.user.id;
-  const { categoryId, amount, date, description } = req.body;
+Exports.addExpense = (req, res) => { // Exports a function called addExpense
+  const userId = req.user.id; // verify token middleware 
+  const { categoryId, amount, date, description } = req.body; //Extracts expense data from request body Sent from frontend as JSON
 
   if (!categoryId || !amount || !date) {
     return res.status(400).json({
@@ -18,10 +18,10 @@ exports.addExpense = (req, res) => {
     });
   }
 
-  const query = `
-    INSERT INTO EXPENSES (USER_ID, CATEGORY_ID, AMOUNT, DATE, DESCRIPTION)
+  const query = ` 
+    INSERT INTO EXPENSES (USER_ID, CATEGORY_ID, AMOUNT, DATE, DESCRIPTION) 
     VALUES (?, ?, ?, ?, ?)
-  `;
+  `; // SQL command to insert a new expense
 
   db.run(query, [userId, categoryId, amount, date, description], function (err) {
     if (err) {
@@ -35,15 +35,15 @@ exports.addExpense = (req, res) => {
     res.status(201).json({
       status: 'success',
       message: 'Expense added successfully',
-      expenseId: this.lastID,
+      expenseId: this.lastID, // expense created and given an id 
     });
   });
 };
 
-exports.getExpenses = (req, res) => {
-  const userId = req.user.id;
+Exports.getExpenses = (req, res) => {
+  const userId = req.user.id; // from cookie token 
 
-  const query = `SELECT * FROM EXPENSES WHERE USER_ID = ?`;
+  const query = `SELECT * FROM EXPENSES WHERE USER_ID = ?`; //sql query fetches user expenses by user id 
 
   db.all(query, [userId], (err, rows) => {
     if (err) {

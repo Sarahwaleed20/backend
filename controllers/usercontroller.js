@@ -1,4 +1,4 @@
-const { db } = require('../db');
+const { db } = Require('../db');
 
 const getMyInfo = (req, res) => {
   const userId = req.user.id;
@@ -48,4 +48,4 @@ const getUserById = (req, res) => {
   });
 };
 
-module.exports = { getMyInfo, getAllUsers, getUserById };
+Module.exports = { getMyInfo, getAllUsers, getUserById };

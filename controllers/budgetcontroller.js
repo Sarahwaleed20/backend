@@ -1,4 +1,4 @@
-const { db } = require('../db');
+const { db } = Require('../db');
 
 const getBudgets = (req, res) => {
   const userId = req.user.id;
@@ -88,4 +88,4 @@ const deleteBudget = (req, res) => {
   });
 };
 
-module.exports = { getBudgets, createBudget, updateBudget, deleteBudget };
+Module.exports = { getBudgets, createBudget, updateBudget, deleteBudget };
