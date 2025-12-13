@@ -1,4 +1,4 @@
-const { db } = Require('../db');
+const { db } = require('../db');
 
 Exports.addExpense = (req, res) => { // Exports a function called addExpense
   const userId = req.user.id; // verify token middleware 
@@ -40,7 +40,7 @@ Exports.addExpense = (req, res) => { // Exports a function called addExpense
   });
 };
 
-Exports.getExpenses = (req, res) => {
+exports.getExpenses = (req, res) => {
   const userId = req.user.id; // from cookie token 
 
   const query = `SELECT * FROM EXPENSES WHERE USER_ID = ?`; //sql query fetches user expenses by user id 

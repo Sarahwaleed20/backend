@@ -1,7 +1,7 @@
-const express = Require('express');
+const express = require('express');
 const router = express.Router();
-const { verifyToken } = Require('../controllers/authcontroller');
-const { getBudgets, createBudget, updateBudget, deleteBudget } = Require('../controllers/budgetcontroller');
+const { verifyToken } = require('../controllers/authcontroller');
+const { getBudgets, createBudget, updateBudget, deleteBudget } = require('../controllers/budgetcontroller');
 
 router.get('/', verifyToken, getBudgets);
 router.post('/', verifyToken, createBudget);

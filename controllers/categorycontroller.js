@@ -1,4 +1,4 @@
-const { db } = Require('../db');
+const { db } = require('../db');
 
 const getCategories = (req, res) => {
   const userId = req.user.id; //verify token 
@@ -90,4 +90,4 @@ const deleteCategory = (req, res) => {
   });
 };
 
-Module.exports = { getCategories, createCategory, updateCategory, deleteCategory };
+module.exports = { getCategories, createCategory, updateCategory, deleteCategory };

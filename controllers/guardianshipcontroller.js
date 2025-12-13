@@ -1,8 +1,8 @@
-const { db } = Require('../db');
+const { db } = require('../db');
 
-Exports.assignGuardian = (req, res) => {
-  const parentId = req.user.id;
-  const { childId } = req.body;
+exports.assignGuardian = (req, res) => {
+  const parentId = req.user.id; // verify token 
+  const { childId } = req.body; // sent by front end in body using json 
 
   if (!childId) {
     return res.status(400).json({

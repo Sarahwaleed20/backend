@@ -1,4 +1,4 @@
-const { db } = Require('../db');
+const { db } = require('../db');
 
 const getMyInfo = (req, res) => {
   const userId = req.user.id;
@@ -17,7 +17,7 @@ const getMyInfo = (req, res) => {
 };
 
 
-const getAllUsers = (req, res) => {
+const getAllUsers = (req, res) => { //admin only 
   const query = `SELECT ID, EMAIL, ROLE FROM USER`;
 
   db.all(query, [], (err, rows) => {
@@ -32,7 +32,7 @@ const getAllUsers = (req, res) => {
 };
 
 
-const getUserById = (req, res) => {
+const getUserById = (req, res) => { //also by admin 
   const userId = req.params.id;
 
   const query = `SELECT ID, EMAIL, ROLE FROM USER WHERE ID = ?`;
@@ -48,4 +48,4 @@ const getUserById = (req, res) => {
   });
 };
 
-Module.exports = { getMyInfo, getAllUsers, getUserById };
+module.exports = { getMyInfo, getAllUsers, getUserById };

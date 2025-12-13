@@ -1,6 +1,6 @@
-const express = Require('express');
+const express = require('express');
 const router = express.Router();
-const { verifyToken } = Require('../controllers/authcontroller');
+const { verifyToken } = require('../controllers/authcontroller');
 const { getCategories, createCategory, updateCategory, deleteCategory } = Require('../controllers/categorycontroller');
 
 router.get('/', verifyToken, getCategories);

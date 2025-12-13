@@ -1,7 +1,7 @@
-const jwt = Require('jsonwebtoken');
-const bcrypt = Require('bcryptjs');
-const fs = Require('fs'); // to write logs in the auth logs file 
-const { db } = Require('../db');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const fs = require('fs'); // to write logs in the auth logs file 
+const { db } = require('../db');
 
 const signToken = (id, role) => {
   return jwt.sign(
@@ -173,7 +173,7 @@ const verifyAdmin = (req, res, next) => {
   });
 };
 
-Module.exports = {
+module.exports = {
   signUp,
   login,
   logout,

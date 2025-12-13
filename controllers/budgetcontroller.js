@@ -1,9 +1,9 @@
-const { db } = Require('../db');
+const { db } = require('../db');
 
 const getBudgets = (req, res) => {
   const userId = req.user.id;
 
-  const query = `SELECT * FROM BUDGET WHERE USER_ID = ?`;
+  const query = `SELECT * FROM BUDGET WHERE USER_ID = ?`;//• Fetches only budgets belonging to this user
 
   db.all(query, [userId], (err, rows) => {
     if (err) return res.status(500).json({ error: 'Database error.' });
@@ -41,8 +41,8 @@ const createBudget = (req, res) => {
 };
 
 const updateBudget = (req, res) => {
-  const userId = req.user.id;
-  const budgetId = req.params.id;
+  const userId = req.user.id; // from token 
+  const budgetId = req.params.id; // from url
   const { categoryId, amount, startDate, endDate } = req.body;
 
   const query = `
@@ -67,7 +67,7 @@ const updateBudget = (req, res) => {
 
 const deleteBudget = (req, res) => {
   const userId = req.user.id;
-  const budgetId = req.params.id;
+  const budgetId = req.params.id; // budget id from url 
 
   const query = `
     DELETE FROM BUDGET
@@ -88,4 +88,4 @@ const deleteBudget = (req, res) => {
   });
 };
 
-Module.exports = { getBudgets, createBudget, updateBudget, deleteBudget };
+module.exports = { getBudgets, createBudget, updateBudget, deleteBudget };
