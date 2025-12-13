@@ -1,7 +1,7 @@
-const express = require('express');
+const express = Require('express');
 const router = express.Router();
-const { verifyToken } = require('../controllers/authcontroller');
-const { getCategories, createCategory, updateCategory, deleteCategory } = require('../controllers/categorycontroller');
+const { verifyToken } = Require('../controllers/authcontroller');
+const { getCategories, createCategory, updateCategory, deleteCategory } = Require('../controllers/categorycontroller');
 
 router.get('/', verifyToken, getCategories);
 router.post('/', verifyToken, createCategory);

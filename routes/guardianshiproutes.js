@@ -1,7 +1,7 @@
-const express = require('express');
+const express = Require('express');
 const router = express.Router();
-const { verifyToken } = require('../controllers/authcontroller');
-const { assignGuardian, getChildren } = require('../controllers/guardianshipcontroller');
+const { verifyToken } = Require('../controllers/authcontroller');
+const { assignGuardian, getChildren } = Require('../controllers/guardianshipcontroller');
 
 router.post('/', verifyToken, assignGuardian);
 router.get('/', verifyToken, getChildren);
