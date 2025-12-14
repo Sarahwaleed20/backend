@@ -1,5 +1,5 @@
-const { app } = Require('./index');
-const { db, createUserTable, createExpensesTable, createCategoryTable, createBudgetTable, createGuardianshipTable } = Require('./db');
+const { app } = require('./index');
+const { db, createUserTable, createExpensesTable, createCategoryTable, createBudgetTable, createGuardianshipTable } = require('./db');
 
 const PORT = 3000;
 

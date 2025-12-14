@@ -1,6 +1,6 @@
 const { db } = require('../db');
 
-Exports.addExpense = (req, res) => { // Exports a function called addExpense
+exports.addExpense = (req, res) => { // Exports a function called addExpense
   const userId = req.user.id; // verify token middleware 
   const { categoryId, amount, date, description } = req.body; //Extracts expense data from request body Sent from frontend as JSON
 

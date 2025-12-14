@@ -33,7 +33,7 @@ exports.assignGuardian = (req, res) => {
   });
 };
 
-Exports.getChildren = (req, res) => {
+exports.getChildren = (req, res) => {
   const parentId = req.user.id;
 
   const query = `

@@ -1,15 +1,15 @@
-const path = Require("path");
-const express = Require('express');
-const cors = Require('cors');
-const cookieParser = Require('cookie-parser');
-const dotenv = Require('dotenv');
-const expenseRouter = Require('./routes/expenseRoutes');
-const authRouter = Require('./routes/authroutes');
-const userRouter = Require('./routes/userroutes');
-const categoryRouter = Require('./routes/categoryRoutes');
-const budgetRouter = Require('./routes/budgetroutes');
-const analyticsRouter = Require('./routes/analyticsRoutes');
-const guardianshipRouter = Require('./routes/guardianshiproutes');
+const path = require("path");
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
+const expenseRouter = require('./routes/expenseRoutes');
+const authRouter = require('./routes/authroutes');
+const userRouter = require('./routes/userroutes');
+const categoryRouter = require('./routes/categoryRoutes');
+const budgetRouter = require('./routes/budgetroutes');
+const analyticsRouter = require('./routes/analyticsRoutes');
+const guardianshipRouter = require('./routes/guardianshiproutes');
 dotenv.config();
 
 const app = express();
